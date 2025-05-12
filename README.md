@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Innovaciones Verde Vital</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
@@ -17,14 +17,89 @@
     .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
     .producto { border: 1px solid #ddd; border-radius: 10px; padding: 10px; background: #fff; width: 180px; text-align: center; }
     .producto img { width: 100%; height: auto; border-radius: 8px; }
+    .producto input { width: 50px; margin: 10px 0; }
     footer { background-color: #c8e6c9; text-align: center; padding: 10px; }
-    input, textarea { width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 5px; }
-    button { background-color: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    button { background-color: #4caf50; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
+
+    /* Carrito minimizado */
+    #icono-carrito {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4caf50;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #badge-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: white;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    /* Panel del carrito */
+    #panel-carrito {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    #panel-carrito h3 { margin-top: 0; }
+    #panel-carrito ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
+    #panel-carrito li { border-bottom: 1px solid #ccc; padding: 5px 0; display: flex; justify-content: space-between; }
+
+    /* Modal datos compra */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      align-items: center; justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%; max-width: 400px;
+      position: relative;
+    }
+    .modal .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .modal-content input, .modal-content textarea {
+      width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 5px;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="3.jpg" alt=" Verde Vital">
+    <img src="3.jpg" alt="Verde Vital">
   </header>
 
   <section class="info-table">
@@ -51,42 +126,56 @@
   <section class="tienda">
     <h2>Tienda en Línea</h2>
     <div class="productos">
+
       <div class="producto">
         <img src="5.jpg" alt="Romana">
         <p>Lechuga Romana</p>
-        <button>Comprar</button>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga Romana', this)">Agregar</button>
       </div>
+
       <div class="producto">
-        <img src="10.jpg" alt="Romana">
+        <img src="10.jpg" alt="Romana Empaquetada">
         <p>Lechuga Romana Empaquetada</p>
-        <button>Comprar</button>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga Romana Empaquetada', this)">Agregar</button>
       </div>
+
       <div class="producto">
         <img src="6.jpg" alt="Iceberg">
         <p>Lechuga Iceberg</p>
-        <button>Comprar</button>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga Iceberg', this)">Agregar</button>
       </div>
+
       <div class="producto">
-        <img src="11.jpg" alt="Iceberg">
+        <img src="11.jpg" alt="Iceberg Empaquetada">
         <p>Lechuga Iceberg Empaquetada</p>
-        <button>Comprar</button>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga Iceberg Empaquetada', this)">Agregar</button>
       </div>
+
       <div class="producto">
         <img src="7.jpg" alt="Batavia">
         <p>Batavia</p>
-        <button>Comprar</button>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Batavia', this)">Agregar</button>
       </div>
+
       <div class="producto">
         <img src="8.jpg" alt="Mantequilla">
-        <p>mantequilla</p>
-        <button>Comprar</button>
+        <p>Lechuga Mantequilla</p>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga Mantequilla', this)">Agregar</button>
       </div>
+
       <div class="producto">
-        <img src="9.jpg" alt="hoja suelta">
-        <p>hoja suelta</p>
-        <button>Comprar</button>
+        <img src="9.jpg" alt="Hoja suelta">
+        <p>Lechuga de hoja suelta</p>
+        <input type="number" min="1" value="1">
+        <button onclick="agregarAlCarrito('Lechuga de hoja suelta', this)">Agregar</button>
       </div>
-      <!-- Agregar más productos como sea necesario -->
+
     </div>
   </section>
 
@@ -113,5 +202,120 @@
   <footer>
     <p>&copy; 2025 Innovaciones Verde Vital. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Icono carrito -->
+  <div id="icono-carrito" onclick="toggleCarrito()">
+    🛒
+    <div id="badge-count">0</div>
+  </div>
+
+  <!-- Panel carrito -->
+  <div id="panel-carrito">
+    <h3>Tu Carrito</h3>
+    <ul id="listaCarrito"></ul>
+    <p><strong>Total: $<span id="totalCarrito">0.00</span></strong></p>
+    <button onclick="vaciarCarrito()">Vaciar</button>
+    <button onclick="abrirFormularioDatos()">Finalizar compra</button>
+  </div>
+
+  <!-- Modal datos de compra -->
+  <div class="modal" id="modal-datos">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModalDatos()">&times;</span>
+      <h3>Datos de Compra</h3>
+      <form onsubmit="confirmarPago(event)">
+        <label>Nombre del Cliente:</label>
+        <input type="text" id="cliente-nombre" required>
+
+        <label>Correo Electrónico:</label>
+        <input type="email" id="cliente-email" required>
+
+        <label>Dirección de Entrega:</label>
+        <textarea id="cliente-direccion" rows="3" required></textarea>
+
+        <button type="submit">Confirmar Pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const carrito = [];
+
+    function agregarAlCarrito(nombre, btn) {
+      const cantidad = parseInt(btn.previousElementSibling.value);
+      const item = carrito.find(i => i.nombre === nombre);
+      if (item) item.cantidad += cantidad;
+      else carrito.push({ nombre, cantidad });
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById('listaCarrito');
+      const totalEl = document.getElementById('totalCarrito');
+      const badge = document.getElementById('badge-count');
+      lista.innerHTML = '';
+      let suma = 0, totalItems = 0;
+
+      carrito.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} x${item.cantidad}`;
+        const btnQuitar = document.createElement('button');
+        btnQuitar.textContent = '❌';
+        btnQuitar.onclick = () => { carrito.splice(i,1); actualizarCarrito(); };
+        li.appendChild(btnQuitar);
+        lista.appendChild(li);
+        suma += item.cantidad * 0.75;
+        totalItems += item.cantidad;
+      });
+
+      totalEl.textContent = suma.toFixed(2);
+      badge.textContent = totalItems;
+    }
+
+    function vaciarCarrito() {
+      carrito.length = 0;
+      actualizarCarrito();
+    }
+
+    function toggleCarrito() {
+      const panel = document.getElementById('panel-carrito');
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function abrirFormularioDatos() {
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+      document.getElementById('modal-datos').style.display = 'flex';
+    }
+
+    function cerrarModalDatos() {
+      document.getElementById('modal-datos').style.display = 'none';
+    }
+
+    function confirmarPago(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('cliente-nombre').value;
+      const email = document.getElementById('cliente-email').value;
+      const direccion = document.getElementById('cliente-direccion').value;
+      let resumen = `Pedido de ${nombre}\nEmail: ${email}\nDirección: ${direccion}\n\nItems:\n`;
+      carrito.forEach(i => {
+        resumen += `- ${i.nombre} x${i.cantidad}\n`;
+      });
+      resumen += `\nTotal: $${carrito.reduce((s,i)=>s+i.cantidad*0.75,0).toFixed(2)}`;
+      alert(resumen);
+      vaciarCarrito();
+      cerrarModalDatos();
+      toggleCarrito();
+    }
+
+    // Cerrar modal al hacer clic fuera
+    window.onclick = (e) => {
+      if (e.target === document.getElementById('modal-datos')) {
+        cerrarModalDatos();
+      }
+    };
+  </script>
 </body>
 </html>
