@@ -5,20 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Innovaciones Verde Vital</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
-    header { background-color: #e8f5e9; padding: 20px; text-align: center; }
+    /* Fondo con dos imágenes: 20.jpg arriba y 21.jpg abajo */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      /* orden de capas: la primera va encima de la segunda */
+      background:
+        url('20.jpg') no-repeat center top,
+        url('21.jpg') no-repeat center bottom,
+        #f5f5f5;
+      background-size: cover, cover;
+    }
+
+    header { background-color: rgba(232,245,233,0.8); padding: 20px; text-align: center; }
     header img { max-width: 200px; }
     section { padding: 20px; }
-    .info-table, .formulario { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
+    .info-table, .formulario { background: rgba(255,255,255,0.9); padding: 20px; margin-bottom: 20px; border-radius: 10px; }
     .info-table table { width: 100%; border-collapse: collapse; }
     .info-table td, .info-table th { padding: 10px; border-bottom: 1px solid #ccc; }
-    .galeria img, .valores img { width: 100%; max-width: 800px; display: block; margin: 0 auto; margin-bottom: 20px; }
-    .tienda { background: white; padding: 20px; border-radius: 10px; }
+    .galeria img, .valores img { width: 100%; max-width: 800px; display: block; margin: 0 auto 20px; }
+    .tienda { background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; }
     .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
     .producto { border: 1px solid #ddd; border-radius: 10px; padding: 10px; background: #fff; width: 180px; text-align: center; }
     .producto img { width: 100%; height: auto; border-radius: 8px; }
     .producto input { width: 50px; margin: 10px 0; }
-    footer { background-color: #c8e6c9; text-align: center; padding: 10px; }
+    footer { background-color: rgba(200,230,201,0.9); text-align: center; padding: 10px; }
     button { background-color: #4caf50; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
 
     /* Carrito minimizado */
@@ -128,28 +140,28 @@
     <div class="productos">
 
       <div class="producto">
-        <img src="5.jpg" alt="Romana">
+        <img src="5.jpg" alt="Lechuga Romana">
         <p>Lechuga Romana</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga Romana', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="10.jpg" alt="Romana Empaquetada">
+        <img src="10.jpg" alt="Lechuga Romana Empaquetada">
         <p>Lechuga Romana Empaquetada</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga Romana Empaquetada', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="6.jpg" alt="Iceberg">
+        <img src="6.jpg" alt="Lechuga Iceberg">
         <p>Lechuga Iceberg</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga Iceberg', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="11.jpg" alt="Iceberg Empaquetada">
+        <img src="11.jpg" alt="Lechuga Iceberg Empaquetada">
         <p>Lechuga Iceberg Empaquetada</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga Iceberg Empaquetada', this)">Agregar</button>
@@ -163,14 +175,14 @@
       </div>
 
       <div class="producto">
-        <img src="8.jpg" alt="Mantequilla">
+        <img src="8.jpg" alt="Lechuga Mantequilla">
         <p>Lechuga Mantequilla</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga Mantequilla', this)">Agregar</button>
       </div>
 
       <div class="producto">
-        <img src="9.jpg" alt="Hoja suelta">
+        <img src="9.jpg" alt="Lechuga de hoja suelta">
         <p>Lechuga de hoja suelta</p>
         <input type="number" min="1" value="1">
         <button onclick="agregarAlCarrito('Lechuga de hoja suelta', this)">Agregar</button>
@@ -310,7 +322,6 @@
       toggleCarrito();
     }
 
-    // Cerrar modal al hacer clic fuera
     window.onclick = (e) => {
       if (e.target === document.getElementById('modal-datos')) {
         cerrarModalDatos();
