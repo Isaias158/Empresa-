@@ -120,7 +120,7 @@
       <tr><th>Nombre de la empresa</th><td>Innovaciones Verde Vital</td></tr>
       <tr><th>Producto | Servicio</th><td>Santas Lechugas</td></tr>
       <tr><th>Sector económico</th><td>Agrícola</td></tr>
-      <tr><th>Actividad económica</th><td>Cultivo de plantas no perennes:<br>- Lechuga romana<br>- Lechuga Iceberg<br>- Lechuga Batavia<br>- Lechuga de hoja suelta<br>- Lechuga Mantequilla<br>- Lechuga de primavera</td></tr>
+      <tr><th>Actividad económica</th><td>Cultivo de plantas no perennes:<br>- Lechuga romana<br>- Lechuga Iceberg<br>- Lechuga Batavia<br>- Lechuga de hoja suelta<br>- Lechuga Mantequilla<br> </td></tr>
       <tr><th>Teléfono</th><td>2319-1814</td></tr>
       <tr><th>Celular</th><td>7514-3220</td></tr>
       <tr><th>Correo electrónico</th><td>contacto@innovacionesverdevital.com<br>atencionalcliente@verde-vital.com</td></tr>
