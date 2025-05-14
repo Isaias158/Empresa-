@@ -129,10 +129,10 @@
       <tr><th>Fecha de formalización</th><td>1 Febrero 2025</td></tr>
       <tr><th>Clasificación MYPE</th><td>Mediana Empresa</td></tr>
     </table>
-  </section>
+  
 
 <section class="galeria">
-    <img src="23.jpg" alt="">
+    <img src="23.jpg" alt=".">
   </section>
 
   <section class="galeria">
