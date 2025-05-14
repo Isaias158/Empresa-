@@ -131,6 +131,10 @@
     </table>
   </section>
 
+<section class="galeria">
+    <img src="23.jpg" alt="Promoción Lechugas">
+  </section>
+
   <section class="galeria">
     <img src="4.jpg" alt="Promoción Lechugas">
   </section>
