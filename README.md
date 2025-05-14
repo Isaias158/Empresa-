@@ -132,7 +132,7 @@
   </section>
 
 <section class="galeria">
-    <img src="23.jpg" alt="Promoción Lechugas">
+    <img src="23.jpg" alt="">
   </section>
 
   <section class="galeria">
